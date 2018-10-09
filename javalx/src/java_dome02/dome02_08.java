@@ -11,12 +11,12 @@ public class dome02_08 {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		List<UserInfo> list = new ArrayList<UserInfo>();
-		list.add(new UserInfo(1,21,"name1"));
-		list.add(new UserInfo(2,27,"name1"));
-		list.add(new UserInfo(3,15,"name1"));
-		list.add(new UserInfo(5,24,"name1"));
-		list.add(new UserInfo(4,24,"name1"));
+		List<UserInfo1> list = new ArrayList<UserInfo1>();
+		list.add(new UserInfo1(1,21,"name1"));
+		list.add(new UserInfo1(2,27,"name1"));
+		list.add(new UserInfo1(3,15,"name1"));
+		list.add(new UserInfo1(5,24,"name1"));
+		list.add(new UserInfo1(4,24,"name1"));
 		//对该类排序
 		Collections.sort(list);
 		for(int i=0;i<list.size();i++){
@@ -36,12 +36,12 @@ public class dome02_08 {
 
 }
 
-class UserInfo implements Comparable<UserInfo> {
+class UserInfo1 implements Comparable<UserInfo1> {
 	private int userid;
 	private int age;
 	private String name;
 	
-	public UserInfo(int userid, int age , String name) {
+	public UserInfo1(int userid, int age , String name) {
 		this.userid = userid;
 		this.age = age;
 		this.name = name;
@@ -76,7 +76,7 @@ class UserInfo implements Comparable<UserInfo> {
 	}
 
 	@Override
-	public int compareTo(UserInfo o) {
+	public int compareTo(UserInfo1 o) {
 		// TODO Auto-generated method stub
 		if(this.age - o.age == 0)//首先比较年龄，若年龄相投则比较学号
 			return this.userid - o.userid;
