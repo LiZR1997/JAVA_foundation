@@ -48,7 +48,7 @@ public class WeakHashMapTest {
 		System.out.println(wMap.containsKey("111"));
 		w1 = null;
 		//将w1设置为null
-		//但hashmap中的引用为强引用，还存在对w1的引用，则调用gc不会将对象回收，需要同时将hashmap中的元素删除
+		//但hashmap中的引用为强引用，“强键”，还存在对w1的引用，则调用gc不会将对象回收，需要同时将hashmap中的元素删除
 		System.gc();
 		wMap.remove(new String("one"));
 		System.out.println(wMap + "hashmap的大小" + wMap.size());
