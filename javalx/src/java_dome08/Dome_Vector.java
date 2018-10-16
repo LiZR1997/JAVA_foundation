@@ -22,6 +22,7 @@ public class Dome_Vector {
 		System.out.println("");
 		Vector<Integer> vector2 = new Vector<Integer>(6);
 		vector2.addAll(Arrays.asList(1,2,3,4,5,6));
+		vector2.remove(2);
 		for (Integer integer : vector2) {
 			System.out.print(integer + " ");
 		}
