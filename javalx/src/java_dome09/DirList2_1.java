@@ -12,7 +12,7 @@ public class DirList2_1 {
 	 */
 	public static void main(final String[] args) {
 		// TODO Auto-generated method stub
-		File path = new File("D:/javaio/DirList");
+		File path = new File("D:\\javaio\\DirList2");
 //		args = new String[]{"DirList0.txt"};
 //		通过向java 主函数传递参数，来判断文件是否在该目录下
 		String list[] ;

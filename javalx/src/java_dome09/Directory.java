@@ -69,9 +69,9 @@ public final class Directory {
 	static TreeInfo recurseDire(File startDir , String regex) {
 		TreeInfo result = new TreeInfo();
 		for(File item : startDir.listFiles()){
-			if(item.isDirectory()) {
+			if(item.isDirectory()) {//判断文件是否为文件夹
 				result.dirs.add(item);
-			    result.addAll(recurseDire(item, regex));
+			    result.addAll(recurseDire(item, regex));//进行递归遍历
 			} else 
 				if(item.getName().matches(regex))
 					result.files.add(item);
