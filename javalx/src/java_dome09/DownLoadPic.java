@@ -23,23 +23,31 @@ public class DownLoadPic {
         ArrayList<String> ar = new ArrayList<String>();
         int n=0;
         String s;
-        while(n<=19){
-            s="http://manhua.fzdm.com/22/636/index_"+n+".html";
-        Document doc = Jsoup.connect(s).get();
-        //获取后缀为png和jpg的图片的元素集合
-       Elements pngs=null;
-       pngs = doc.select("img[src~=(?i)\\.jpg]");
-       for(Element e : pngs){
-           
-           String src=e.attr("src");//获取img中的src路径
-           if(src.indexOf("http:")<0)
-               src="http:"+src;
-            ar.add(src);
-            break;
-       }
-       n++;
-        }
+        try {
+        	while(n<=3){
+        		s="http://manhua.fzdm.com/22/681/index_"+n+".html";
+        		Document doc = Jsoup.connect(s).
+        				userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.64 Safari/537.31")
+        				.get();
+        		//获取后缀为png和jpg的图片的元素集合
+        		Elements pngs=null;
+        		pngs = doc.select("img[src~=(?i)\\.jpg]");
+        		System.out.println(pngs);
+        		for(Element e : pngs){
+        			String src=e.attr("src");//获取img中的src路径
+        			if(src.indexOf("http:")<0)
+        				src="http:"+src;
+        			ar.add(src);
+        			break;
+        		}
+        		n++;
+        	}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
         //遍历元素
+        System.out.println(ar);
         int imageName=0;
         for(String e : ar){
             imageName=imageName+1;
@@ -63,6 +71,7 @@ public class DownLoadPic {
 
 
     public static void main(String[] args) throws IOException {
+    	
         new DownLoadPic().getDoc(); //调用方法
     }
 }
