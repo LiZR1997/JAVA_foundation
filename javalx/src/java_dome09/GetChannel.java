@@ -35,7 +35,7 @@ public class GetChannel {
 		fChannel.read(buffer);
 		buffer.flip();
 		//反转buffer中的字节指针使其指向0，buffer开始的位置，便于对整个buffer操作
-		while(buffer.hasRemaining()) {
+		while(buffer.hasRemaining()) {//若介于limit与position之间则返回trun
 			System.out.println((char)buffer.get());
 		}
 		

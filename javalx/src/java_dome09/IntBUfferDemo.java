@@ -17,7 +17,9 @@ public class IntBUfferDemo {
 		System.out.println(ib.get(3));
 		ib.put(3,0);
 		ib.put(77);
-		ib.flip();
+		ib.flip();//filp()一般会改变位置，limit()为当前填写的位置
+//		ib.rewind();//filp()不会改变位置,limit()为当前的容量
+		System.out.println(ib.limit());
 		while( ib.hasRemaining() ) {
 			int i = ib.get();
 			System.out.println(i);
