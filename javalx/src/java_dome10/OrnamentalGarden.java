@@ -10,14 +10,14 @@ import java.util.concurrent.TimeUnit;
 class Count {//产生是否进入花园的随机
 	private int count = 0 ;
 	private Random random = new Random(47);
-	public synchronized int increment() {
+	public synchronized int increment() {//线程同步，所有方法均需执行它，让步
 		int temp = count;
 		if(random.nextBoolean())
 			Thread.yield();
 		return (count = ++temp);
 	}
 	public synchronized int value() {
-		return count;
+		return count;//count值与所有对象的值的和相同
 	}
 }
 
@@ -33,7 +33,7 @@ class Entrance implements Runnable {
 	
 	public Entrance(int id) {
 		this.id = id;
-		entrances.add(this);
+		entrances.add(this);//在ArrayList中添加每个对象
 	}
 
 
@@ -82,7 +82,7 @@ public class OrnamentalGarden {
 		// TODO Auto-generated method stub
 		ExecutorService exec = Executors.newCachedThreadPool();
 		for (int i = 0; i < 5; i++) {
-			exec.execute(new Entrance(i));//使用线程池创建5个线程
+			exec.execute(new Entrance(i));//使用线程池创建5个线程，5个入口
 		}
 		TimeUnit.SECONDS.sleep(2);
 		Entrance.cancel();
