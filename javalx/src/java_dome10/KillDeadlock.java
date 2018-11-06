@@ -31,7 +31,7 @@ public class KillDeadlock implements Runnable{
             e.printStackTrace();
         } finally {
             if (lock1.isHeldByCurrentThread()) lock1.unlock();  // 注意判断方式
-            if (lock2.isHeldByCurrentThread()) lock2.unlock();
+            if (lock2.isHeldByCurrentThread()) lock2.unlock();  //isHeldByCurrentThread()：查询当前线程是否保持锁
             System.err.println(Thread.currentThread().getId() + "退出！");
         }
     }
