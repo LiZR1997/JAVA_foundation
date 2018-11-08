@@ -15,6 +15,7 @@ public class Dome_Hashtable {
 		Hashtable<Integer, String> hashtable2 = new Hashtable<Integer, String>();
 		System.out.println(Float.isNaN(0.0f/0.0f));	
 		hashtable.put(1, "111111");
+		hashtable.put(1, "111111");
 		hashtable.put(2, "222222");
 		hashtable.put(3, "333333");
 		hashtable.put(4, "444444");
