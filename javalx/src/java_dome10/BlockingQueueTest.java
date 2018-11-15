@@ -14,6 +14,13 @@ public class BlockingQueueTest {
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 		BlockingQueue<String> queue = new LinkedBlockingQueue<String>();
+		/*ArrayBlockingQueue的内部实现
+		 * 利用三目运算符，实现补码
+		 *  final int inc(int i) {
+              return (++i == items.length)? 0 : i;
+                }
+
+		 * */
 		Producer producer1 = new Producer(queue); 
 		Producer producer2 = new Producer(queue); 
 		Producer producer3 = new Producer(queue); 
